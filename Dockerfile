@@ -4,6 +4,7 @@ FROM python:3.11-buster
 # 파이썬의 출력 표시를 Docker용으로 조정
 ENV PYTHONUNBUFFERED=1
 
+# 작업 디렉토리 설정
 WORKDIR /src
 
 # pip로 poetry 설치
