@@ -1,5 +1,5 @@
 # Backend-study
-Backend-study 리포지토리는 Python을 사용하여 백엔드 개발을 공부하고 연습하기 위해 만들어졌습니다.
+Backend-study 리포지토리에 오신 것을 환영합니다! 이 리포지토리는 Python과 Docker를 사용하여 백엔드 개발을 공부하고 연습하기 위해 만들어졌습니다.
 
 목차
 소개
@@ -40,10 +40,8 @@ docker-compose up --build
 애플리케이션이 실행되고 http://localhost:8000에서 접근 가능합니다.
 테스트 실행
 테스트를 실행하려면 다음 명령어를 사용하세요:
+bash docker-compose run backend pytest
 
-bash
-코드 복사
-docker-compose run backend pytest
 프로젝트 구조
 markdown
 코드 복사
