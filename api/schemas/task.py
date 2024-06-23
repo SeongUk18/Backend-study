@@ -1,10 +1,11 @@
 from pydantic import BaseModel, Field
 from typing import Optional
+import datetime
 
 
 class TaskBase(BaseModel):
     title: Optional[str] = Field(None, examples=["세탁소에 맡긴 것을 찾으러 가기"])
-
+    due_date: Optional[datetime.date] = Field(None, examples=["2024-12-01"])
 
 class TaskCreate(TaskBase):  # TaskBase를 변경하지 않으면 동작 확인 시 title이 표시되지 않음
     pass
