@@ -49,7 +49,7 @@ Backend-study 리포지토리는 Python을 사용하여 백엔드 개발을 공�
 ### 테스트 실행
 테스트를 실행하려면 다음 명령어를 사용하세요:
     ```bash
-    docker-compose run backend pytest
+    docker-compose run --entrypoint "poetry run pytest" demo-app
     ```
 
 ## 프로젝트 구조
