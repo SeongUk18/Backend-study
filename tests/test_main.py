@@ -74,3 +74,13 @@ async def test_done_flag(async_client):
     # 이미 완료 플래그가 해제되었으므로 404 반환
     response = await async_client.delete(f"/tasks/{task_id}/done")
     assert response.status_code == starlette.status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.asyncio
+async def test_due_date(async_client):
+    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024-12-01"})
+    assert response.status_code == starlette.status.HTTP_200_OK
+
+    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024-12-32"})
+    # 날짜 설정시 없는 날 2024-12-32 같은 경우를 주게 되면 에러남
+    assert response.status_code == starlette.status.HTTP_422_UNPROCESSABLE_ENTITY
