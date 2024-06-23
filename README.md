@@ -41,7 +41,7 @@ Backend-study 리포지토리는 Python을 사용하여 백엔드 개발을 공�
 
 ### 애플리케이션 실행
 1. Docker 컨테이너를 빌드하고 실행합니다:
-    ```bash
+    ```
     docker-compose up --build
     ```
 2. 애플리케이션이 실행되고 `http://localhost:8000`에서 접근 가능합니다.
