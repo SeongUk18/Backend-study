@@ -78,15 +78,13 @@ async def test_done_flag(async_client):
 
 @pytest.mark.asyncio
 async def test_due_date(async_client):
-    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024-12-01"})
-    assert response.status_code == starlette.status.HTTP_200_OK
-
-    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024-12-32"})
-    # 날짜 설정시 없는 날 2024-12-32 같은 경우를 주게 되면 에러남
-    assert response.status_code == starlette.status.HTTP_422_UNPROCESSABLE_ENTITY
-
-    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024/12/01"})
-    assert response.status_code == starlette.status.HTTP_422_UNPROCESSABLE_ENTITY
-
-    response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": "2024-1201"})
-    assert response.status_code == starlette.status.HTTP_422_UNPROCESSABLE_ENTITY
+    input_list = ["2024-12-01", "2024-12-32", "2024/12/01", "2024-1201"]
+    expectation_list = [
+        starlette.status.HTTP_200_OK,
+        starlette.status.HTTP_422_UNPROCESSABLE_ENTITY,
+        starlette.status.HTTP_422_UNPROCESSABLE_ENTITY,
+        starlette.status.HTTP_422_UNPROCESSABLE_ENTITY
+    ]
+    for input_param, expectation in zip(input_list, expectation_list):
+        response = await async_client.post("/tasks", json={"title": "테스트 작업", "due_date": input_param})
+        assert response.status_code == expectation
