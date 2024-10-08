@@ -1,9 +1,11 @@
 package jpabook.jpashop.repository;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -21,8 +23,8 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-    /** JPQL로 처리 하는 법
-    public List<Order> findAllByString(OrderSearch orderSearch) {
+    // JPQL로 처리 하는 법
+    public List<Order> findAll(OrderSearch orderSearch) {
         //language=JPAQL
         String jpql = "select o From Order o join o.member m";
         boolean isFirstCondition = true;
@@ -55,7 +57,7 @@ public class OrderRepository {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
         return query.getResultList();
-    } **/
+    }
 
     /** JPA Criteria로 처리 하는 법
     public List<Order> findAllByCriteria(OrderSearch orderSearch) {
