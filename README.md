@@ -5,7 +5,7 @@ Backend-study 리포지토리는 백엔드 개발을 학습하고 연습하기 �
 ## 목차
 - [구조](#구조)
 - [FastAPI](#fastapi)
-- [Spring Boot](#spring Boot)
+- [Spring Boot](#springboot)
 
 ## 구조
 - `FastAPI/`  
