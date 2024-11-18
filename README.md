@@ -12,7 +12,7 @@ Backend-study 리포지토리는 백엔드 개발을 학습하고 연습하기 �
   FastAPI를 사용한 백엔드 개발 예제와 프로젝트가 포함된 폴더입니다.
 
 - `Spring Boot/`  
-  Spring Boot을 사용한 백엔드 개발을 학습할 예정인 폴더입니다.
+  Spring Boot을 사용한 백엔드 개발 예제와 프로젝트가 포함된 폴더입니다.
 
 ## FastAPI
 FastAPI는 Python으로 구축된 빠르고 직관적인 웹 프레임워크입니다. 이 폴더에는 FastAPI를 사용한 API 개발과 관련된 프로젝트가 포함되어 있습니다. 자세한 내용은 [FastAPI README](./FastAPI/README.md)를 참조하세요.
